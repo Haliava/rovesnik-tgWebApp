@@ -19,11 +19,12 @@ export const useTheme = () => {
 };
 
 interface ThemeProviderProps {
-  children: ReactNode;
+  children: ReactNode,
+  initTheme?: 'light' | 'dark',
 }
 
-export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState<Theme>('light');
+export const ThemeProvider = ({ children, initTheme }: ThemeProviderProps) => {
+  const [theme, setTheme] = useState<Theme>(initTheme ?? 'light');
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));

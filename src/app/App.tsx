@@ -13,9 +13,9 @@ import { ThemeProvider } from '../shared/ui/themeContext/ThemeContext';
 const queryClient = new QueryClient()
 
 const App: React.FC = () => {
-  //console.log(window.Telegram.WebApp)
+  console.log(window.Telegram.WebApp)
   return (
-    <ThemeProvider>
+    <ThemeProvider initTheme={window.Telegram.WebApp.colorScheme}>
       <QueryClientProvider client={queryClient}>
         <ReduxStoreProvider store={store}>
           <HistoryRouter history={history}>
